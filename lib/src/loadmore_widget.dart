@@ -32,6 +32,8 @@ class LoadMore extends StatefulWidget {
 
   /// when [whenEmptyLoad] is true, and when listView children length is 0,or the itemCount is 0,not build loadMoreWidget
   final bool whenEmptyLoad;
+  
+  final Widget? loadingWidget;
 
   const LoadMore({
     Key? key,
@@ -41,6 +43,7 @@ class LoadMore extends StatefulWidget {
     this.isFinish = false,
     this.delegate,
     this.whenEmptyLoad = true,
+    this.loadingWidget,
   }) : super(key: key);
 
   @override
@@ -392,13 +395,9 @@ class DefaultLoadMoreDelegate extends LoadMoreDelegate {
             SizedBox(
               width: _loadmoreIndicatorSize,
               height: _loadmoreIndicatorSize,
-              child: CircularProgressIndicator(
+              child: loadingWidget??CircularProgressIndicator(
                 backgroundColor: Colors.blue,
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(text),
             ),
           ],
         ),
