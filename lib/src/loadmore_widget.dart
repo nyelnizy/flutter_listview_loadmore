@@ -395,7 +395,7 @@ class DefaultLoadMoreDelegate extends LoadMoreDelegate {
             SizedBox(
               width: _loadmoreIndicatorSize,
               height: _loadmoreIndicatorSize,
-              child: loadingWidget??CircularProgressIndicator(
+              child: widget.loadingWidget??CircularProgressIndicator(
                 backgroundColor: Colors.blue,
               ),
             ),
